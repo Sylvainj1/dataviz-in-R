@@ -1,3 +1,11 @@
+library(tidyverse)
+library(tidyr)
+library(shiny)
+library(datasets)
+library(ggplot2)
+library(dplyr)
+library(plotly)
+
 data = read.csv("data.csv",sep=';',header = TRUE,na.strings = ".")
 data=data[complete.cases(data), ]
 data$Condition.d.accès=strtrim(data$Condition.d.accès,7)
