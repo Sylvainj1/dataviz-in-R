@@ -15,7 +15,8 @@ ui <- fluidPage(
   # title
   titlePanel("Evolution du nombre de borne de recharge en France par trimestre"),
   # Main panel
-  mainPanel(plotlyOutput(outputId = "evolution_plot"))
+  mainPanel(
+    plotlyOutput(outputId = "evolution_plot"))
 )
 
 # Define server logic required to draw a histogram
@@ -25,7 +26,7 @@ server <- function(input, output) {
 
     data_evolution_station_long %>%
       ggplot(aes(x=Trimestre, y = Nombre , fill= Type)) +
-      geom_bar(stat= "identity") + theme(axis.text.x = element_text(angle = 90, hjust = 1, vjust = .5))
+      geom_bar(stat= "identity") + theme(axis.text.x = element_text(angle = 45, hjust = 1, vjust = .5))
 
   })
 
