@@ -13,6 +13,13 @@ ui <- fluidPage(
       plotOutput("borneplot")  
     )
   ),
+  
+  sidebarLayout(
+    sidebarPanel("test"),
+    mainPanel(
+        plotlyOutput(outputId = "evolution_plot")
+      )
+  )
   # titlePanel("test"),
   # mainPanel(
   #   plotlyOutput(outputId = "evolution_plot"))

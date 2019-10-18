@@ -25,11 +25,11 @@ server <- function(input, output) {
     graph()
   })
   
-  # output$evolution_plot <- renderPlotly({
-  #   
-  #   data_evolution_station_long %>%
-  #     ggplot(aes(x=Trimestre, y = Nombre , fill= Type)) +
-  #     geom_bar(stat= "identity") + theme(axis.text.x = element_text(angle = 45, hjust = 1, vjust = .5))
-  #   
-  # })
+  output$evolution_plot <- renderPlotly({
+    
+    data_evolution_station_long %>%
+      ggplot(aes(x=Trimestre, y = Nombre , fill= Type)) +
+      geom_bar(stat= "identity") + theme(axis.text.x = element_text(angle = 45, hjust = 1, vjust = .5))
+    
+  })
 }
