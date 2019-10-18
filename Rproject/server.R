@@ -24,4 +24,8 @@ server <- function(input, output) {
       geom_bar(stat= "identity") + theme(axis.text.x = element_text(angle = 45, hjust = 1, vjust = .5))
     
   })
+  
+  output$carplot <- renderTable({
+    data %>% group_by("Puissance de la borne"=Puissance.délivrée) %>%  summarize("Temps de recharge"="") 
+  })
 }
