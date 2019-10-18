@@ -1,7 +1,10 @@
-# data = read.csv("data.csv",sep=';',header = TRUE,na.strings = ".")
-# data=data[complete.cases(data), ]
-# data$Condition.d.accès=strtrim(data$Condition.d.accès,7)
-# data=filter(data,Condition.d.accès=="gratuit" | Condition.d.accès =="payant")
+library(tidyverse)
+library(tidyr)
+library(shiny)
+library(datasets)
+library(ggplot2)
+library(dplyr)
+library(plotly)
 
 server <- function(input, output) {
   
@@ -21,4 +24,12 @@ server <- function(input, output) {
   output$borneplot <- renderPlot({
     graph()
   })
+  
+  # output$evolution_plot <- renderPlotly({
+  #   
+  #   data_evolution_station_long %>%
+  #     ggplot(aes(x=Trimestre, y = Nombre , fill= Type)) +
+  #     geom_bar(stat= "identity") + theme(axis.text.x = element_text(angle = 45, hjust = 1, vjust = .5))
+  #   
+  # })
 }
