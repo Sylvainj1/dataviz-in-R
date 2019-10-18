@@ -1,11 +1,3 @@
-library(tidyverse)
-library(tidyr)
-library(shiny)
-library(datasets)
-library(ggplot2)
-library(dplyr)
-library(plotly)
-
 server <- function(input, output) {
   
   
