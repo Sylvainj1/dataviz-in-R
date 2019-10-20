@@ -18,14 +18,25 @@ server <- function(input, output) {
   })
   
   output$evolution_plot <- renderPlotly({
-    
+      
     data_evolution_station_long %>%
       ggplot(aes(x=Trimestre, y = Nombre , fill= Type)) +
       geom_bar(stat= "identity") + theme(axis.text.x = element_text(angle = 45, hjust = 1, vjust = .5))
     
   })
   
-  output$carplot <- renderTable({
-    data %>% group_by("Puissance de la borne"=Puissance.délivrée) %>%  summarize("Temps de recharge"="") 
+  output$carplot <- renderText({
+    car=filter(cardata,name==input$car)
+    
+    paste("Accelération 0-100 km/h : ",car$acceleration,
+          "Autonomie : ",car$range,
+          "Batterie utilisable : ",car$battery,
+          sep = "</p>"
+          )
+  })
+  
+  output$timeplot <- renderTable({
+    car=filter(cardata,name==input$car)
+    data %>% group_by("Puissance de la borne en kW"=Puissance.délivrée) %>%  summarize("Temps de recharge en h"=car$battery/unique(Puissance.délivrée))
   })
 }
