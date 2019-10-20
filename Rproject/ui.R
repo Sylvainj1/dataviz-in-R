@@ -43,6 +43,19 @@ ui <- fluidPage(
     )
   ),
   
+  titlePanel("Temps de recharge selon la puissance de la borne"),
+  
+  sidebarLayout(
+    sidebarPanel(
+      selectInput(inputId="car",
+                  label="Voiture :",
+                  choices = "Audi e-tron",
+                  )
+      ),
+    mainPanel(
+      tableOutput("carplot")
+    )
+    ),
   # titlePanel("test"),
   # mainPanel(
   #   plotlyOutput(outputId = "evolution_plot"))
