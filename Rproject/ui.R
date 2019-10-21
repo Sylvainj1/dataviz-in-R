@@ -9,7 +9,7 @@ ui <- fluidPage(
   
   div(style="display: inline-block;vertical-align:top;",
       img(src="audi_image_top.png",width = 439, height= 289),
-      ),
+  ),
   
   div(style="display: inline-block;vertical-align:top;margin-left:50px",
       h3("Fiche technique"),
@@ -19,6 +19,7 @@ ui <- fluidPage(
       p("Batterie utilisable : 83,6 kWh"),
       p("Trasmission : traction intégrale"),
   ),
+  titlePanel("Evolution du nombre de borne de recharge en France par trimestre"),
   
   # fluidRow(
   #   
@@ -43,17 +44,20 @@ ui <- fluidPage(
     )
   ),
   
-  titlePanel("Temps de recharge selon la puissance de la borne"),
+  
+  titlePanel("Fiche technique"),
   
   sidebarLayout(
     sidebarPanel(
       selectInput(inputId="car",
                   label="Voiture :",
-                  choices = "Audi e-tron",
+                  choices = cardata$name,
                   )
       ),
+    
     mainPanel(
-      tableOutput("carplot")
+      tableOutput("carplot"),
+      tableOutput("timeplot")
     )
     ),
   # titlePanel("test"),
