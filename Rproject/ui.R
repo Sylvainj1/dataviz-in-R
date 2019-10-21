@@ -1,24 +1,5 @@
 ui <- fluidPage(
   
-  fluidRow(
-    h1("Dois-je acheter une voiture electrique ?"),
-    p("Aujourd'hui on etend beaucoup parler des voitures électriques, notamment face
-      à l'urgence écologique. Est t'il le temps pour vous de passer au tout électrique
-      et laisser votre von vieux thermique de coté ?")
-  ),
-  
-  div(style="display: inline-block;vertical-align:top;",
-      img(src="audi_image_top.png",width = 439, height= 289),
-  ),
-  
-  div(style="display: inline-block;vertical-align:top;margin-left:50px",
-      h3("Fiche technique"),
-      p("Puissance : 402ch - 300kw"),
-      p("Accelération 0-100 km/h : 5,7s"),
-      p("Autonomie : 417 km"),
-      p("Batterie utilisable : 83,6 kWh"),
-      p("Trasmission : traction intégrale"),
-  ),
   titlePanel("Evolution du nombre de borne de recharge en France par trimestre"),
   
   # fluidRow(
@@ -44,6 +25,30 @@ ui <- fluidPage(
     )
   ),
   
+  fluidRow(
+    h1("Dois-je acheter une voiture electrique ?"),
+    p("Aujourd'hui on etend beaucoup parler des voitures électriques, notamment face
+      à l'urgence écologique. Est t'il le temps pour vous de passer au tout électrique
+      et laisser votre von vieux thermique de coté ?")
+  ),
+  
+  div(style="display: inline-block;vertical-align:top;",
+      img(src="audi_image_top.png",width = 439, height= 289),
+  ),
+  
+  div(style="display: inline-block;vertical-align:top;margin-left:50px",
+    h3("Fiche Technique"),
+    htmlOutput("carplot")
+  ),
+  # div(style="display: inline-block;vertical-align:top;margin-left:50px",
+  #     h3("Fiche technique"),
+  #     p("Puissance : 402ch - 300kw"),
+  #     p("Accelération 0-100 km/h : 5,7s"),
+  #     p("Autonomie : 417 km"),
+  #     p("Batterie utilisable : 83,6 kWh"),
+  #     p("Trasmission : traction intégrale"),
+  #),
+  
   
   titlePanel("Fiche technique"),
   
@@ -56,7 +61,6 @@ ui <- fluidPage(
       ),
     
     mainPanel(
-      tableOutput("carplot"),
       tableOutput("timeplot")
     )
     ),

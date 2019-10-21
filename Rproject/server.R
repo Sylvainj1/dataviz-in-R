@@ -25,15 +25,24 @@ server <- function(input, output) {
     
   })
   
-  output$carplot <- renderText({
+  output$carplot <- renderUI({
     car=filter(cardata,name==input$car)
-    
-    paste("Accelération 0-100 km/h : ",car$acceleration,
-          "Autonomie : ",car$range,
-          "Batterie utilisable : ",car$battery,
-          sep = "</p>"
-          )
+    acc <- paste("Acceleration 0-100 km/h : ", car$acceleration, "s")
+    aut <- paste("Autonomie : ", car$range, "km")
+    batt <- paste("Batterie utilisable : ", car$battery, "kWh")
+    place <- paste("Place : ", car$seats)
+    price <- paste("Prix : ", car$price, "K€")
+    HTML(paste(acc,aut,batt,place,price,sep = "<br/>"))
   })
+  # output$carplot <- renderText({
+  #   car=filter(cardata,name==input$car)
+  #   
+  #   paste("Accelération 0-100 km/h : ",car$acceleration,
+  #         "Autonomie : ",car$range,
+  #         "Batterie utilisable : ",car$battery,
+  #         sep = " ",
+  #         )
+  # })
   
   output$timeplot <- renderTable({
     car=filter(cardata,name==input$car)
