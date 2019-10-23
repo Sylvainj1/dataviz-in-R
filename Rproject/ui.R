@@ -101,7 +101,7 @@ ui <- fluidPage(
                   )
     ),
     mainPanel(
-      plotlyOutput("carcomparaison", width=550)
+      plotOutput("carcomparaison", width=550)
     )
   ),
   
