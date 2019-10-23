@@ -45,11 +45,6 @@ server <- function(input, output) {
   #         )
   # })
   
-  output$timeplot <- renderPlot({
-    car=filter(cardata,name==input$car)
-    data %>% group_by(Puissance.del=Puissance.délivrée) %>%  summarize(Temps.recharge=car$battery/unique(Puissance.délivrée)) %>% 
-    ggplot(aes(x= Temps.recharge, y = Puissance.del, color = Temps.recharge)) + geom_line() + scale_color_gradient(low="green", high="red")
-  })
   
   output$carcomparaison <- renderPlotly({
     dataSubset <- reactive({

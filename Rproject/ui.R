@@ -5,7 +5,11 @@ ui <- fluidPage(
     p("Aujourd'hui nous entendons beaucoup parler des voitures électriques, notamment face
       à l'urgence écologique. Mais beaucoup de questions se posent lorsque l'on considère acheter un véhicule electrique :
       Y a t-il assez de chargeur ? Quel est le temps de charge ? Quelle autonomie dois-je considerer ?
-      Est t'il le temps pour vous de passer au tout électrique et laisser votre von vieux thermique de coté ?")
+      Est t'il le temps pour vous de passer au tout électrique et laisser votre von vieux thermique de coté ?"),
+    
+    div(style="display: inline-block;vertical-align:top;position",
+        img(src="audi_image_top.png",width = 439, height= 289),
+    ),
   ),
   
   titlePanel("Evolution du nombre de borne de recharge en France par trimestre"),
@@ -13,6 +17,7 @@ ui <- fluidPage(
   plotlyOutput(outputId = "evolution_plot"),
   
   fluidRow(
+    p(""),
     p("Le nombre de bornes de recharges a été multiplié par 5 depuis 2015. Le nomnbre de borne de recharge publique lui
       a triplé sur l'essemble du térritoire francais"),
     p("Sur le graphique suivant vous pouvez selectionner votre Région et voir le nombre de borne disponible
@@ -34,19 +39,7 @@ ui <- fluidPage(
   ),
   
   fluidRow(
-    h1("Dois-je acheter une voiture electrique ?"),
-    p("Aujourd'hui on etend beaucoup parler des voitures électriques, notamment face
-      à l'urgence écologique. Est t'il le temps pour vous de passer au tout électrique
-      et laisser votre von vieux thermique de coté ?")
-  ),
-  
-  div(style="display: inline-block;vertical-align:top;",
-      img(src="audi_image_top.png",width = 439, height= 289),
-  ),
-  
-  div(style="display: inline-block;vertical-align:top;margin-left:50px",
-    h3("Fiche Technique"),
-    htmlOutput("carplot")
+    
   ),
   
   titlePanel("Fiche technique"),
@@ -60,7 +53,7 @@ ui <- fluidPage(
       ),
     
     mainPanel(
-      plotOutput("timeplot")
+      htmlOutput("carplot")
     )
     ),
   
