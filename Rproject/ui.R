@@ -61,7 +61,7 @@ ui <- fluidPage(
       ),
     
     mainPanel(
-      tableOutput("timeplot")
+      plotOutput("timeplot")
     )
     ),
   # titlePanel("test"),
