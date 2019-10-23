@@ -10,13 +10,6 @@ ui <- fluidPage(
   
   titlePanel("Evolution du nombre de borne de recharge en France par trimestre"),
   
-  # fluidRow(
-  #   
-  #   img(src="audi_image_top.png",width = 439, height= 289),
-  #   p("salut",)
-  #   ),
-  
-  
   plotlyOutput(outputId = "evolution_plot"),
   
   fluidRow(
@@ -55,15 +48,6 @@ ui <- fluidPage(
     h3("Fiche Technique"),
     htmlOutput("carplot")
   ),
-  # div(style="display: inline-block;vertical-align:top;margin-left:50px",
-  #     h3("Fiche technique"),
-  #     p("Puissance : 402ch - 300kw"),
-  #     p("Accelération 0-100 km/h : 5,7s"),
-  #     p("Autonomie : 417 km"),
-  #     p("Batterie utilisable : 83,6 kWh"),
-  #     p("Trasmission : traction intégrale"),
-  #),
-  
   
   titlePanel("Fiche technique"),
   
@@ -79,9 +63,6 @@ ui <- fluidPage(
       plotOutput("timeplot")
     )
     ),
-  # titlePanel("test"),
-  # mainPanel(
-  #   plotlyOutput(outputId = "evolution_plot"))
   
   titlePanel("Comparer le temps de charge des voitures"),
   
