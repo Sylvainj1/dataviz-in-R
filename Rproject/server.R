@@ -65,9 +65,15 @@ server <- function(input, output) {
         theme(axis.text.x = element_text(angle = 45, hjust = 1, vjust = .5),legend.position = "none")+
         labs(x="",y="Autonomie (km)")+
         geom_text(aes(
-          label=format(round(battery/as.double(input$bornepower),2),nsmall=2)),
+          label=format(round(battery/as.double(input$bornepower),2),nsmall=2)
+          ),
           color="black",
-          position=position_stack(0.5))
+          position=position_stack(0.5)) +
+        geom_text(aes(
+          label="Tps charge (H)"
+        ),
+        color="black",
+        position=position_stack(0.6)) 
       
     })
   })

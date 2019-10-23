@@ -91,7 +91,7 @@ ui <- fluidPage(
                      label="Selectionner les voitures",
                      choices=sort(cardata$name),
                      multiple=T,
-                     options = list(maxItems=5,placeholder="Choisir des voitures"),
+                     options = list(maxItems=6,placeholder="Choisir des voitures"),
                      selected=sort(cardata$name)[1:3]
                      ),
       selectInput(inputId = "bornepower",
