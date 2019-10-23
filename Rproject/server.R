@@ -54,7 +54,7 @@ server <- function(input, output) {
   output$carcomparaison <- renderPlotly({
     dataSubset <- reactive({
       validate(
-        need(input$voitureid != "","Selectionnez aumoins une voiture")
+        need(input$voitureid != "","Selectionnez au moins une voiture")
       )
       filter(cardata, name %in% input$voitureid)
       })

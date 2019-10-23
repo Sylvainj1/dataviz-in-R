@@ -1,5 +1,12 @@
 ui <- fluidPage(
   
+  fluidRow(
+    h1("Pourquoi passer à l'electrique ?"),
+    p("Aujourd'hui nous entendons beaucoup parler des voitures électriques, notamment face
+      à l'urgence écologique. Mais beaucoup de questions se posent lorsque l'on considère acheter un véhicule electrique. Est t'il le temps pour vous de passer au tout électrique
+      et laisser votre von vieux thermique de coté ?")
+  ),
+  
   titlePanel("Evolution du nombre de borne de recharge en France par trimestre"),
   
   # fluidRow(
