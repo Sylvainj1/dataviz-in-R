@@ -1,13 +1,13 @@
 ui <- fluidPage(
   
   fluidRow(
-    h1("Pourquoi passer à l'electrique ?"),
+    h1("Pourquoi passer à l'électrique ?"),
     p("Aujourd'hui nous entendons beaucoup parler des voitures électriques, notamment face
       à l'urgence écologique. Mais beaucoup de questions se posent lorsque l'on considère acheter un véhicule electrique :
-      Y a t-il assez de chargeur ? Quel est le temps de charge ? Quelle autonomie dois-je considerer ?
-      Est t'il le temps pour vous de passer au tout électrique et laisser votre von vieux thermique de coté ?"),
+      Y a t-il assez de chargeurs ? Quel est le temps de charge ? Quelle autonomie dois-je considerer ?
+      Est t'il le temps pour vous de passer au tout électrique et laisser votre bon vieux thermique de coté ?"),
     
-    div(style="display: inline-block;vertical-align:top;position",
+    div(style="display: inline-block;vertical-align:top;margin-left:200px;",
         img(src="audi_image_top.png",width = 439, height= 289),
     ),
   ),
@@ -18,9 +18,9 @@ ui <- fluidPage(
   
   fluidRow(
     p(""),
-    p("Le nombre de bornes de recharges a été multiplié par 5 depuis 2015. Le nomnbre de borne de recharge publique lui
-      a triplé sur l'essemble du térritoire francais"),
-    p("Sur le graphique suivant vous pouvez selectionner votre Région et voir le nombre de borne disponible
+    p("Le nombre de bornes de recharges a été multiplié par 5 depuis 2015. Le nombre de borne de recharge publique
+      a triplé sur l'essemble du territoire francais"),
+    p("Sur le graphique suivant vous pouvez selectionner votre région et voir le nombre de borne disponible
       dans votre département")
   ),
   
@@ -75,7 +75,7 @@ ui <- fluidPage(
                   )
     ),
     mainPanel(
-      plotOutput("carcomparaison", width=550)
+      plotOutput("carcomparaison")
     )
   ),
   
