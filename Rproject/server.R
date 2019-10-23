@@ -1,7 +1,15 @@
 server <- function(input, output) {
   
+  output$evolution_plot <- renderPlotly({
+      
+    data_evolution_station_long %>%
+      ggplot(aes(x=Trimestre, y = Nombre , fill= Type)) +
+      geom_bar(stat= "identity") + theme(axis.text.x = element_text(angle = 45, hjust = 1, vjust = .5))
+    
+  })
   
-  graph<-reactive({
+  
+  borneDeRecharge<-reactive({
     
     filter(data,Nom.de.la.région==input$region) %>% 
       group_by(Nom.de.la.région=input$region,Nom.du.département,Condition.d.accès) %>% 
@@ -14,16 +22,9 @@ server <- function(input, output) {
   })
   
   output$borneplot <- renderPlot({
-    graph()
+    borneDeRecharge()
   })
   
-  output$evolution_plot <- renderPlotly({
-      
-    data_evolution_station_long %>%
-      ggplot(aes(x=Trimestre, y = Nombre , fill= Type)) +
-      geom_bar(stat= "identity") + theme(axis.text.x = element_text(angle = 45, hjust = 1, vjust = .5))
-    
-  })
   
   output$carplot <- renderUI({
     car=filter(cardata,name==input$car)
@@ -57,14 +58,17 @@ server <- function(input, output) {
       )
       filter(cardata, name %in% input$voitureid)
       })
-    # cardf=cardata[cardata$name==input$voitureid]
     
     output$carcomparaison <- renderPlotly({
-      
       ggplot(dataSubset(),aes(x=name,y=range, color=name, fill= name, dd = "salut"))+
         geom_bar(stat='identity') + 
         theme(axis.text.x = element_text(angle = 45, hjust = 1, vjust = .5),legend.position = "none")+
-        labs(x="",y="Autonomie (km)")
+        labs(x="",y="Autonomie (km)")+
+        geom_text(aes(
+          label=format(round(battery/as.double(input$bornepower),2),nsmall=2)),
+          color="black",
+          position=position_stack(0.5))
+      
     })
   })
   

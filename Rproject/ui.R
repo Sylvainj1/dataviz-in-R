@@ -92,11 +92,12 @@ ui <- fluidPage(
                      choices=sort(cardata$name),
                      multiple=T,
                      options = list(maxItems=5,placeholder="Choisir des voitures"),
-                     selected=cardata$name[1:3]
+                     selected=sort(cardata$name)[1:3]
                      ),
-      selectInput(inputId="bornepower",
+      selectInput(inputId = "bornepower",
                   label = "Selectionner la puissance d'une borne de recharge (kW)",
-                  choices =sort(data$Puissance.délivrée),
+                  choices = sort(data$Puissance.délivrée),
+                  selected = unique(data$Puissance.délivrée["3"]),
                   )
     ),
     mainPanel(
