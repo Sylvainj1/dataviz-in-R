@@ -63,7 +63,7 @@ ui <- fluidPage(
     sidebarPanel(
       selectInput(inputId="car",
                   label="Voiture :",
-                  choices = cardata$name,
+                  choices = sort(cardata$name),
                   )
       ),
     
@@ -81,11 +81,15 @@ ui <- fluidPage(
     sidebarPanel(
       selectizeInput("voitureid",
                      label="Selectionner les voitures",
-                     choices=cardata$name,
+                     choices=sort(cardata$name),
                      multiple=T,
                      options = list(maxItems=5,placeholder="Choisir des voitures"),
                      selected=cardata$name[1:3]
-                     )
+                     ),
+      selectInput(inputId="bornepower",
+                  label = "Selectionner la puissance d'une borne de recharge (kW)",
+                  choices =sort(data$Puissance.délivrée),
+                  )
     ),
     mainPanel(
       plotlyOutput("carcomparaison", width=550)
