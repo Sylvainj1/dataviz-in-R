@@ -49,4 +49,27 @@ server <- function(input, output) {
     data %>% group_by(Puissance.del=Puissance.délivrée) %>%  summarize(Temps.recharge=car$battery/unique(Puissance.délivrée)) %>% 
     ggplot(aes(x= Temps.recharge, y = Puissance.del, color = Temps.recharge)) + geom_line() + scale_color_gradient(low="green", high="red")
   })
+  
+  output$carcomparaison <- renderPlotly({
+    dataSubset <- reactive({
+      validate(
+        need(input$voitureid != "","Selectionnez aumoins une voiture")
+      )
+      filter(cardata, name %in% input$voitureid)
+      })
+    # cardf=cardata[cardata$name==input$voitureid]
+    
+    output$carcomparaison <- renderPlotly({
+      
+      ggplot(dataSubset(),aes(x=name,y=range, color=name, fill= name))+
+        geom_bar(stat='identity') + 
+        theme(axis.text.x = element_text(angle = 45, hjust = 1, vjust = .5),legend.position = "none")+
+        labs(x="",y="Autonomie (km)")
+    })
+  })
+  
+  
+  
+  
+  
 }

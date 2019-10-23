@@ -68,6 +68,23 @@ ui <- fluidPage(
   # mainPanel(
   #   plotlyOutput(outputId = "evolution_plot"))
   
+  titlePanel("Comparer le temps de charge des voitures"),
+  
+  sidebarLayout(
+    sidebarPanel(
+      selectizeInput("voitureid",
+                     label="Selectionner les voitures",
+                     choices=cardata$name,
+                     multiple=T,
+                     options = list(maxItems=5,placeholder="Choisir des voitures"),
+                     selected=cardata$name[1]
+                     )
+    ),
+    mainPanel(
+      plotlyOutput("carcomparaison", width=550)
+    )
+  ),
+  
 )
 
 
