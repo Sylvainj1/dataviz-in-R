@@ -61,7 +61,7 @@ server <- function(input, output) {
     
     output$carcomparaison <- renderPlotly({
       
-      ggplot(dataSubset(),aes(x=name,y=range, color=name, fill= name))+
+      ggplot(dataSubset(),aes(x=name,y=range, color=name, fill= name, dd = "salut"))+
         geom_bar(stat='identity') + 
         theme(axis.text.x = element_text(angle = 45, hjust = 1, vjust = .5),legend.position = "none")+
         labs(x="",y="Autonomie (km)")
